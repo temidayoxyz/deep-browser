@@ -16,7 +16,7 @@ Workspace files stay in Document Preview. This pane is for live URLs.
 ## Install from GitHub
 
 ```sh
-dsh plugin --profile web add github:temidayoxyz/dsh-deep-browser
+dsh plugin --profile web add github:temidayoxyz/deep-browser
 ```
 
 A git install fetches sources, not built artifacts, so pnpm builds
@@ -31,7 +31,7 @@ allowBuilds:
 ```
 
 and re-run the `add`. Only allow packages whose source you trust, and
-consider pinning a commit (`github:temidayoxyz/dsh-deep-browser#<sha>`).
+consider pinning a commit (`github:temidayoxyz/deep-browser#<sha>`).
 
 ## Run against a local Harness checkout
 
