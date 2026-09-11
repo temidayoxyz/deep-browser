@@ -4,9 +4,10 @@
  */
 import { defineStore, type EngineStoreHandle } from '@deepseek-ai/dsh-client-store'
 import type { TabId } from '@deepseek-ai/dsh-client-ui-dockkit'
+import { DEFAULT_WIDTH, type BrowserWidthSetting } from '../settings.ts'
 
 /** Iframe layout width: the pane, or a fixed CSS pixel viewport. */
-export type BrowserWidth = 'fit' | '390' | '768'
+export type BrowserWidth = BrowserWidthSetting
 
 /** One tab's retained viewing state. */
 export interface BrowserTabState {
@@ -28,9 +29,12 @@ type BrowserActions = {
 
 /**
  * Declare the browser pane's store.
+ * @param getDefaultWidth - reads the current settings default for seeding new tabs.
  * @returns the store handle to declare on the registration.
  */
-export function createBrowserStore(): EngineStoreHandle<BrowserState, BrowserActions> {
+export function createBrowserStore(
+  getDefaultWidth: () => BrowserWidth = () => DEFAULT_WIDTH,
+): EngineStoreHandle<BrowserState, BrowserActions> {
   return defineStore({
     init: (): BrowserState => ({ byTab: {} }),
     actions: {
@@ -40,7 +44,7 @@ export function createBrowserStore(): EngineStoreHandle<BrowserState, BrowserAct
        * @param tabId - the tab being drawn.
        */
       start: (d, tabId: TabId) => {
-        if (d.byTab[tabId] === undefined) d.byTab[tabId] = { width: 'fit' }
+        if (d.byTab[tabId] === undefined) d.byTab[tabId] = { width: getDefaultWidth() }
       },
       /**
        * Record the width preset for one tab.

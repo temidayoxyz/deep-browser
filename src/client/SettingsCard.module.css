@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1em;
+}
+
+.description {
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.label {
+  flex: none;
+  padding-top: 2px;
+}
+
+.widths {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.check {
+  flex: none;
+  margin-top: 4px;
+}
+
+.checkBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hint {
+  opacity: 0.75;
+}

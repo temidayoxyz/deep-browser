@@ -10,9 +10,11 @@ import { isHttpUrl, pageResourceAddress } from './address.ts'
  * Install the document click intercept.
  * @param ctx - client root; `sidebarRight` is read at click time so a missing
  *   session surface falls back to the system browser.
+ * @param isEnabled - reads the current link-intercept setting at click time;
+ *   a disabled intercept leaves the click for native handling.
  * @returns disposer.
  */
-export function interceptHttpLinks(ctx: Context): () => void {
+export function interceptHttpLinks(ctx: Context, isEnabled: () => boolean): () => void {
   const onClick = (event: MouseEvent): void => {
     if (event.defaultPrevented || event.button !== 0) return
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -23,6 +25,7 @@ export function interceptHttpLinks(ctx: Context): () => void {
     if (anchor.closest('[data-deep-browser]') !== null) return
     const href = anchor.href
     if (!isHttpUrl(href)) return
+    if (!isEnabled()) return
     event.preventDefault()
     try {
       ctx.sidebarRight.openResource(pageResourceAddress(href))

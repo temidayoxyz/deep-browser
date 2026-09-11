@@ -26,6 +26,11 @@ export const zh = {
   'width.group': '页面宽度',
   empty: '输入地址，或从对话里点开链接。拒绝被嵌入的页面可以用工具栏打开到系统浏览器。',
   'frame.title': '页面预览',
+  'settings.title': '浏览器',
+  'settings.description': '会话旁边的浏览器：新标签页的默认页面宽度，以及纯点击链接时是否在旁边打开。',
+  'settings.defaultWidth': '默认页面宽度',
+  'settings.linkIntercept': '在会话旁边打开链接',
+  'settings.linkInterceptHint': '纯点击链接时在浏览器标签页中打开；带修饰键的点击始终使用系统浏览器。',
 } satisfies Record<string, string>
 
 /** Dictionary key union. */
@@ -47,4 +52,9 @@ export const en = {
   'width.group': 'Page width',
   empty: 'Type an address, or follow a link from the conversation. Pages that refuse to be framed can be opened in your system browser from the toolbar.',
   'frame.title': 'Page preview',
+  'settings.title': 'Browser',
+  'settings.description': 'The browser beside the conversation: the default page width for new tabs, and whether plain-clicking links opens them here.',
+  'settings.defaultWidth': 'Default page width',
+  'settings.linkIntercept': 'Open links beside the conversation',
+  'settings.linkInterceptHint': 'Plain-click a link to open it in the Browser tab; modifier-click always uses the system browser.',
 } satisfies Record<DeepBrowserKey, string>

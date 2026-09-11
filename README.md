@@ -13,6 +13,17 @@ It does **not** fake Chromium features the web profile cannot provide: zoom, coo
 
 Workspace files stay in Document Preview. This pane is for live URLs.
 
+## Settings (Plugins tab)
+
+The plugin registers a `deep-browser` settings namespace, so it shows a
+card in the web settings **Plugins** tab with two settings, both applied live:
+
+- **Default page width** (Fit / 390 / 768) — the width new tabs start with.
+  Per-tab pills in the pane still override it for that tab.
+- **Open links beside the conversation** — whether plain-clicking an http(s)
+  link opens it in the Browser tab. Modifier-click always uses the system
+  browser.
+
 ## Install from GitHub
 
 ```sh
