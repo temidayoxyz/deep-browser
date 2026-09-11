@@ -1,0 +1,4 @@
+# Applied when a profile lists this bundle, or via `dsh web --patch`.
+- insert:
+    - id: deep-browser
+      name: dsh-deep-browser
