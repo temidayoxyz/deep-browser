@@ -2,8 +2,8 @@
  * Chip title: globe before the hostname or the type label.
  */
 import type { ReactNode } from 'react'
-import { IconGlobeOutline14 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
+import { GlobeGlyph } from './icons.tsx'
 import css from './BrowserBody.module.css'
 
 /**
@@ -14,7 +14,7 @@ export function BrowserTitle({ useTabInfo }: PropsRuntime<'sidebar.right.pane.ta
   const { tab } = useTabInfo()
   return (
     <>
-      <IconGlobeOutline14 size={14} className={css.titleIcon} />
+      <GlobeGlyph size={14} className={css.titleIcon} />
       {tab.title}
     </>
   )

@@ -6,8 +6,8 @@
  */
 import type { SidebarRightTabDefinition } from '@deepseek-ai/dsh-client-ui-sidebar-right/client'
 import type { TranslateNS } from '@deepseek-ai/dsh-client-locale/client'
-import { IconGlobeOutline14, type IconProps } from '@deepseek-ai/dsh-client-ui-primitives'
 import type {} from './locales.ts'
+import { GlobeGlyph } from './icons.tsx'
 import { hostnameOf, urlFromAddress } from './address.ts'
 
 /** The tab kind this package owns. */
@@ -15,11 +15,6 @@ export const BROWSER_KIND = 'browser'
 
 /** This implementation's identity in the tab system, and the key its body registers under. */
 export const BROWSER_ID = 'dsh-deep-browser'
-
-/** Globe glyph at the guide capsule's size. */
-function GlobeGlyph({ size, className }: IconProps) {
-  return <IconGlobeOutline14 size={size} className={className} />
-}
 
 /**
  * The browser type's registry definition.

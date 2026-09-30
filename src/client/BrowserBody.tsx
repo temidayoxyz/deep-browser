@@ -7,16 +7,9 @@
  */
 import { useEffect, useState, type FormEvent, type KeyboardEvent, type ReactNode } from 'react'
 import type { PropsLocale, PropsRuntime, PropsStore } from '@deepseek-ai/dsh-client-ui-slots'
-import {
-  Button,
-  IconLinkOutline16,
-  IconPlusOutline16,
-  IconRefreshOutline16,
-  Input,
-  Pill,
-  Tooltip,
-} from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Input, Pill, Tooltip } from '@deepseek-ai/dsh-client-ui-primitives'
 import { BROWSER_KIND } from './definition.tsx'
+import { ExternalLinkGlyph, PlusGlyph, RefreshGlyph } from './icons.tsx'
 import { normalizeInput, pageResourceAddress, urlFromAddress } from './address.ts'
 import type {} from './locales.ts'
 import type { BrowserWidth, createBrowserStore } from './store.ts'
@@ -95,7 +88,7 @@ export function BrowserBody({
             variant="toolbar"
             size="sm"
             aria-label={t('newTab')}
-            icon={<IconPlusOutline16 />}
+            icon={<PlusGlyph />}
             onClick={() => { tab.actions.openTab(BROWSER_KIND, { revealIfOpened: false }) }}
           />
         </Tooltip>
@@ -119,7 +112,7 @@ export function BrowserBody({
             size="sm"
             aria-label={t('reload')}
             disabled={url === undefined}
-            icon={<IconRefreshOutline16 />}
+            icon={<RefreshGlyph />}
             onClick={() => { setGeneration(value => value + 1) }}
           />
         </Tooltip>
@@ -129,7 +122,7 @@ export function BrowserBody({
             size="sm"
             aria-label={t('openExternal')}
             disabled={url === undefined}
-            icon={<IconLinkOutline16 />}
+            icon={<ExternalLinkGlyph />}
             onClick={() => { if (url !== undefined) openExternal(url) }}
           />
         </Tooltip>
